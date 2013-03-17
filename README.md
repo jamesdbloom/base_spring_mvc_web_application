@@ -14,7 +14,7 @@ This project is a very simple base Spring MVC web application that can be used a
   - JS at bottum (loaded asynchronously)
   - Specifying favicon, apple-touch-icon
   - Resource bundling
-  - Long expiry time for resources (using fingerprint)
+  - Long expiry time for resources (using fingerprint) - _(not fully working yet)_
 - Testing Best Practices
   - BDD style approach
   - In-process automated acceptance tests (using new features in Spring 3.2 combined with JSoup)
