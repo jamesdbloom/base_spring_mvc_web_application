@@ -3,7 +3,7 @@
 <groups xmlns="http://www.isdc.ro/wro">
     <group name='all'>
         <!-- this config allows you to create subdirectories in /resources/js or /resources/css to split the js and css files up in any way that suits the project -->
-        <css>/resources/js/**.js</css>
-        <js>/resources/css/**.css</js>
+        <css>/resources/css/**.css</css>
+        <js>/resources/js/**.js</js>
     </group>
 </groups>
