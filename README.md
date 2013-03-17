@@ -14,13 +14,14 @@ This project is a very simple base Spring MVC web application that can be used a
   - JS at bottum (loaded asynchronously)
   - Specifying favicon, apple-touch-icon
   - Resource bundling
+  - Long expiry time for resources (using fingerprint)
 - Testing Best Practices
   - BDD style approach
   - In-process automated acceptance tests (using new features in Spring 3.2 combined with JSoup)
   - Page Object (encapsulates page interaction)
 - Logging Best Practices
-  - Logback - (not fully working)
-  - Symantic logging - (not fully working)
+  - Logback
+  - Symantic logging - (not yet implemented)
 
 The intention is that this application is: 
 - a simple example 
