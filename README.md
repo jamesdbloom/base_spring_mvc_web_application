@@ -4,7 +4,7 @@ Base Spring MVC Web Application
 This project is a very simple base Spring MVC web application that can be used as a starting point to build any Spring MVC application.  It was created to help the initial phase of starting a new project and wiring together the basic elements.  In particular it contains the best practices in a number of areas as follows:
 
 - Servlet Best Practices
-  - No web.xml all config using annotation (Servlet 3.0) - (not yet implemented)
+  - No web.xml all config using annotation (Servlet 3.0) - _(not yet implemented)_
 - Spring Configuration Best Practices
   - JavaConfig configuration (where possible - i.e. everything except Spring Security)
   - Spring Security (with custom login page)
@@ -21,7 +21,7 @@ This project is a very simple base Spring MVC web application that can be used a
   - Page Object (encapsulates page interaction)
 - Logging Best Practices
   - Logback
-  - Symantic logging - (not yet implemented)
+  - Symantic logging - _(not yet implemented)_
 
 The intention is that this application is: 
 - a simple example 
