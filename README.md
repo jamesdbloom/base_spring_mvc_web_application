@@ -7,8 +7,10 @@ This project is a base Spring MVC web application that can be used as a starting
 - Spring Security
 - In-process automated acceptance tests (using new features in Spring 3.2 combined with JSoup)
 - Hierachical freemarker (to split up / modularise views)
-- Logback (not fully working)
+- Client performance best practices (i.e. specifying favicon and apple-touch-icon, etc) 
 - Resource bundling (not yet implemented)
+- Logback (not fully working)
+
 
 The intention is that this application is: 
 - a simple example 
