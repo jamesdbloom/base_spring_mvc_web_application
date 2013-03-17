@@ -3,14 +3,22 @@ Base Spring MVC Web Application
 
 This project is a base Spring MVC web application that can be used as a starting point to build any Spring MVC application.  It was created to help the initial phase of starting a new project and wiring together the basic elements.  In particular it contains the best practices in a number of areas as follows:
 
-- JavaConfig configuration (where possible - i.e. everything except Spring Security)
-- Spring Security
-- In-process automated acceptance tests (using new features in Spring 3.2 combined with JSoup)
-- Hierachical freemarker (to split up / modularise views)
-- Client performance best practices (i.e. specifying favicon and apple-touch-icon, etc) 
-- Resource bundling (not yet implemented)
-- Logback (not fully working)
-
+- Spring Configuration Best Practices
+  - JavaConfig configuration (where possible - i.e. everything except Spring Security)
+  - Spring Security
+- View / Client Best Practices
+  - Hierachical freemarker (to split up / modularise views)
+  - CSS at top
+  - JS at bottum (loaded asynchronously)
+  - Specifying favicon, apple-touch-icon
+  - Resource bundling (not yet implemented)
+- Testing Best Practices
+  - BDD style approache
+  - In-process automated acceptance tests (using new features in Spring 3.2 combined with JSoup)
+  - Page Object (to encapsulate page interaction)
+- Logging Best Practices
+  - Logback (not fully working)
+  - Symantic logging (not fully working)
 
 The intention is that this application is: 
 - a simple example 
