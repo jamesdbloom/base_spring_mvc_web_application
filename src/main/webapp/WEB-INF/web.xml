@@ -25,6 +25,16 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
+    <!-- resource bundling filter -->
+    <filter>
+        <filter-name>webResourceOptimizer</filter-name>
+        <filter-class>ro.isdc.wro.http.WroFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>webResourceOptimizer</filter-name>
+        <url-pattern>/bundle/*</url-pattern>
+    </filter-mapping>
+
     <!-- spring security filter -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
