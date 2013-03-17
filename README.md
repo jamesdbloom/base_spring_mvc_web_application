@@ -9,7 +9,7 @@ This project is a very simple base Spring MVC web application that can be used a
 - View / Client Best Practices
   - Hierachical freemarker (to split up / modularise views)
   - CSS at top
-  - JS at bottum (loaded asynchronously - this is dependent on the resource bundling being completed)
+  - JS at bottum (loaded asynchronously)
   - Specifying favicon, apple-touch-icon
   - Resource bundling (not yet implemented)
 - Testing Best Practices
