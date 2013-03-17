@@ -13,7 +13,7 @@ This project is a very simple base Spring MVC web application that can be used a
   - CSS at top
   - JS at bottum (loaded asynchronously)
   - Specifying favicon, apple-touch-icon
-  - Resource bundling - (partially implemented)
+  - Resource bundling
 - Testing Best Practices
   - BDD style approach
   - In-process automated acceptance tests (using new features in Spring 3.2 combined with JSoup)
