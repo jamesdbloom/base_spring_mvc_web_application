@@ -22,7 +22,6 @@ This project is a very simple base Spring MVC web application that can be used a
 
 The intention is that this application is: 
 - a simple example 
-- a simple test best
 - a quick to start any Spring MVC web application
 - an easy way to follow best practice
 
