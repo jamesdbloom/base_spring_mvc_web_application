@@ -2,23 +2,28 @@
 <#import "../macro/spring_extension.ftl" as spring />
 
 <#macro page_html>
-    <#escape x as x?html>
-        <#if isAjax?? && isAjax>
-            <@page_body/>
-        <#else>
-            <!DOCTYPE html>
-            <html lang="en_GB">
-                <head>
-                    <@page_head/>
-                </head>
-                <#flush>
-                <body onunload="">
-                    <@page_body/>
-                    <@page_js/>
-                </body>
-            </html>
-        </#if>
-    </#escape>
+    <@compress single_line=true>
+        <#escape x as x?html>
+            <#if isAjax?? && isAjax>
+                <@page_body/>
+            <#else>
+                <!DOCTYPE html>
+                <html lang="en_GB">
+                    <head>
+                        <@page_head/>
+                    </head>
+                    <#flush>
+                    <body onunload="">
+
+                        <@page_body/>
+
+                        <@page_js/>
+                    </body>
+
+                </html>
+            </#if>
+        </#escape>
+    </@compress>
 </#macro>
 
 <#macro page_head>
@@ -37,7 +42,9 @@
 </#macro>
 
 <#macro page_css>
-    <link rel="stylesheet" type="text/css" href="/bundle/all.css" />
+    <#list cssResources["all"] as cssFile>
+        <link rel="stylesheet" type="text/css" href="${cssFile}">
+    </#list>
 </#macro>
 
 <#macro page_body>
@@ -48,10 +55,13 @@
     <script type="text/javascript">
         window.onload = function() {
             setTimeout(function() {
-                var node = document.createElement('script');
-                node.setAttribute('type', 'text/javascript');
-                node.setAttribute('src', '/bundle/all.js');
-                document.body.appendChild(node);
+                <#list jsResources["all"] as jsFile>
+                    <#local node = "node_${jsFile_index}">
+                    var ${node} = document.createElement('script');
+                    ${node}.setAttribute('type', 'text/javascript');
+                    ${node}.setAttribute('src', '${jsFile}');
+                    document.body.appendChild(${node});
+                </#list>
             }, 50);
         };
     </script>
