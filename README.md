@@ -13,7 +13,7 @@ This project is a very simple base Spring MVC web application that can be used a
   - CSS at top
   - JS at bottum (loaded asynchronously)
   - Specifying favicon, apple-touch-icon
-  - Resource bundling
+  - Resource bundling - that can be enabled / unminified / disbaled from query string
   - Long expiry time for resources (using fingerprint) - _(not fully working yet)_
 - Testing Best Practices
   - BDD style approach
