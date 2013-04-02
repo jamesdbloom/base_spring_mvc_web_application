@@ -103,21 +103,21 @@
 
         <!-- resource bundling -->
         <dependency>
-          <groupId>ro.isdc.wro4j</groupId>
-          <artifactId>wro4j-core</artifactId>
-          <version>1.6.2</version>
+            <groupId>ro.isdc.wro4j</groupId>
+            <artifactId>wro4j-core</artifactId>
+            <version>1.6.2</version>
         </dependency>
         <dependency>
-          <groupId>ro.isdc.wro4j</groupId>
-          <artifactId>wro4j-extensions</artifactId>
-          <version>1.6.2</version>
+            <groupId>ro.isdc.wro4j</groupId>
+            <artifactId>wro4j-extensions</artifactId>
+            <version>1.6.2</version>
         </dependency>
 
         <!-- google guava -->
         <dependency>
-        	<groupId>com.google.guava</groupId>
-        	<artifactId>guava</artifactId>
-        	<version>13.0.1</version>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>13.0.1</version>
         </dependency>
 
         <!-- apache commons -->

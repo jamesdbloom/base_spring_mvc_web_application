@@ -31,13 +31,13 @@
     <title>some silly title to have on this page></title>
     <@page_css/>
     <link rel="shortcut icon" href="/resources/icon/favicon.ico" />
-    <link rel="apple-touch-icon" href="/resources/icon/icon-57.png"/>
+    <link rel="apple-touch-icon" href="/resources/icon/apple-touch-icon.png" />
 </#macro>
 
 <#macro page_meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="some silly description to have on this page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="some silly description to have on this page" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </#macro>
 
