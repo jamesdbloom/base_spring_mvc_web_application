@@ -32,6 +32,6 @@ The intention is that this application is:
 To achieve these aims this project will be kept up to date with the latest features on a regular basis.
 
 More information about this application can be found at:
-- JavaScript and CSS Minification With WRO4J -> http://blog.jamesdbloom.com/JSAndCSSMinificationWithWRO4J.html
-- Testing Web Pages In Process -> http://blog.jamesdbloom.com/TestingWebPagesInProcess.html
-- Using PropertySource & Environment -> http://blog.jamesdbloom.com/UsingPropertySourceAndEnvironment.html
+- JavaScript and CSS Minification With WRO4J - http://blog.jamesdbloom.com/JSAndCSSMinificationWithWRO4J.html
+- Testing Web Pages In Process - http://blog.jamesdbloom.com/TestingWebPagesInProcess.html
+- Using PropertySource & Environment - http://blog.jamesdbloom.com/UsingPropertySourceAndEnvironment.html
