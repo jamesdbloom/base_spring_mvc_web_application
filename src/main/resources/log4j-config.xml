@@ -4,7 +4,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
 
     <appender name="FILE_LOGGER" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/var/log/base_spring_mvc_web_application/server.log"/>
+        <param name="File" value="server.log"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>
         <param name="threshold" value="TRACE"/>
         <layout class="org.apache.log4j.EnhancedPatternLayout">

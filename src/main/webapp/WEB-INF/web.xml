@@ -12,7 +12,6 @@
     <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <!--<param-value>classpath:/config/root-context.xml</param-value>-->
         <param-value>org.jamesdbloom.configuration.RootConfiguration</param-value>
     </context-param>
 
@@ -26,7 +25,7 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
-    <!-- add bundling model to servlet context so JS and CSS links can be pragmatically written into freemarker -->
+    <!-- add bundling domain to servlet context so JS and CSS links can be pragmatically written into freemarker -->
     <listener>
         <listener-class>ro.isdc.wro.http.WroServletContextListener</listener-class>
     </listener>
@@ -73,7 +72,6 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <!--<param-value>classpath:/config/servlet-context.xml</param-value>-->
             <param-value>org.jamesdbloom.web.configuration.WebMvcConfiguration</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
@@ -82,10 +80,5 @@
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
-    <!-- Disables Servlet Container welcome file handling. Needed for compatibility with Servlet 3.0 and Tomcat 7.0 -->
-    <welcome-file-list>
-        <welcome-file></welcome-file>
-    </welcome-file-list>
 
 </web-app>

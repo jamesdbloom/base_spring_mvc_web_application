@@ -1,5 +1,10 @@
+<#-- @ftlvariable name="cssResources" type="java.util.Map<java.lang.String, java.util.List<java.lang.String>>" -->
+<#-- @ftlvariable name="jsResources" type="java.util.Map<java.lang.String, java.util.List<java.lang.String>>" -->
+<#-- @ftlvariable name="isAjax" type="java.lang.Boolean" -->
+
 <#include "settings.ftl" />
-<#import "../macro/spring_extension.ftl" as spring />
+<#import "/org/springframework/web/servlet/view/freemarker/spring.ftl" as spring />
+<#import "/WEB-INF/view/macro/messages.ftl" as messages />
 
 <#macro page_html>
     <@compress single_line=true>
@@ -14,9 +19,7 @@
                     </head>
                     <#flush>
                     <body onunload="">
-
                         <@page_body/>
-
                         <@page_js/>
                     </body>
 
@@ -42,9 +45,11 @@
 </#macro>
 
 <#macro page_css>
-    <#list cssResources["all"] as cssFile>
-        <link rel="stylesheet" type="text/css" href="${cssFile}">
-    </#list>
+    <#if cssResources?? && cssResources["all"]?? >
+        <#list cssResources["all"] as cssFile>
+            <link rel="stylesheet" type="text/css" href="${cssFile}">
+        </#list>
+    </#if>
 </#macro>
 
 <#macro page_body>
@@ -52,17 +57,19 @@
 </#macro>
 
 <#macro page_js>
-    <script type="text/javascript">
-        window.onload = function() {
-            setTimeout(function() {
-                <#list jsResources["all"] as jsFile>
-                    <#local node = "node_${jsFile_index}">
-                    var ${node} = document.createElement('script');
-                    ${node}.setAttribute('type', 'text/javascript');
-                    ${node}.setAttribute('src', '${jsFile}');
-                    document.body.appendChild(${node});
-                </#list>
-            }, 50);
-        };
-    </script>
+    <#if jsResources?? && jsResources["all"]?? >
+        <script type="text/javascript">
+            window.onload = function() {
+                setTimeout(function() {
+                    <#list jsResources["all"] as jsFile>
+                        <#local node = "node_${jsFile_index}">
+                        var ${node} = document.createElement('script');
+                        ${node}.setAttribute('type', 'text/javascript');
+                        ${node}.setAttribute('src', '${jsFile}');
+                        document.body.appendChild(${node});
+                    </#list>
+                }, 50);
+            };
+        </script>
+    </#if>
 </#macro>

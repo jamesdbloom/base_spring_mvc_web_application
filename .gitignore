@@ -23,8 +23,8 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
+*.trace.db
 
 # OS generated files #
 ######################
@@ -54,3 +54,7 @@ target
 ################################
 .gradle
 build
+
+# Tomcat artifacts #
+####################
+tomcat

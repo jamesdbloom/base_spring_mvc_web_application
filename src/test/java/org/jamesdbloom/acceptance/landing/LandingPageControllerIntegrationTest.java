@@ -1,54 +1,42 @@
 package org.jamesdbloom.acceptance.landing;
 
-import org.jamesdbloom.acceptance.PropertyMockingApplicationContextInitializer;
-import org.jamesdbloom.web.configuration.WebMvcConfiguration;
-import org.junit.Before;
+import org.jamesdbloom.acceptance.BaseIntegrationTest;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.context.WebApplicationContext;
-
-import javax.annotation.Resource;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
  * @author jamesdbloom
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@ContextConfiguration(classes = WebMvcConfiguration.class, initializers = PropertyMockingApplicationContextInitializer.class)
-public class LandingPageControllerIntegrationTest {
-
-    @Resource
-    private WebApplicationContext webApplicationContext;
-    private MockMvc mockMvc;
-
-    @Before
-    public void setupFixture() {
-        mockMvc = webAppContextSetup(webApplicationContext).build();
-    }
+public class LandingPageControllerIntegrationTest extends BaseIntegrationTest {
 
     @Test
     public void getPage() throws Exception {
-        mockMvc.perform(get("/").accept(MediaType.TEXT_HTML))
+        mockMvc.perform(
+                get("/").secure(true)
+                        .session(session)
+                        .accept(MediaType.TEXT_HTML)
+        )
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("text/html;charset=UTF-8"));
+                .andExpect(content().contentType("text/html;charset=UTF-8"))
+                .andReturn();
     }
 
     @Test
     public void testShouldNotReturnLoginPageForPostRequest() throws Exception {
-        mockMvc.perform(post("/"))
-                .andExpect(status().isMethodNotAllowed());
+        mockMvc
+                .perform(
+                        post("/")
+                                .secure(true)
+                                .session(session)
+                                .param((csrfToken != null ? csrfToken.getParameterName() : "_csrf"), (csrfToken != null ? csrfToken.getToken() : ""))
+                )
+                .andExpect(status().isMethodNotAllowed())
+                .andReturn();
     }
 
 }

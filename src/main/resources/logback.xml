@@ -1,11 +1,11 @@
 <configuration debug="true">
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-       <file>/var/log/base_spring_mvc_web_application/server.log</file>
+        <file>server.log</file>
 
-       <encoder>
-         <pattern>%date %level [%thread] %logger{35} [%file:%line] %msg%n</pattern>
-       </encoder>
-     </appender>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{35} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -16,7 +16,7 @@
     <logger name="org.jamesdbloom" level="TRACE"/>
 
     <root level="TRACE">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

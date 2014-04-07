@@ -24,8 +24,8 @@ This project is a very simple base Spring MVC web application that can be used a
   - Logback
   - Symantic logging - _(not yet implemented)_
 
-The intention is that this application is: 
-- a simple example 
+The intention is that this application is:
+- a simple example
 - a quick to start any Spring MVC web application
 - an easy way to follow best practice
 
@@ -35,3 +35,26 @@ More information about this application can be found at:
 - JavaScript and CSS Minification With WRO4J - http://blog.jamesdbloom.com/JSAndCSSMinificationWithWRO4J.html
 - Testing Web Pages In Process - http://blog.jamesdbloom.com/TestingWebPagesInProcess.html
 - Using PropertySource & Environment - http://blog.jamesdbloom.com/UsingPropertySourceAndEnvironment.html
+
+**Upgraded for Spring 4.0.2**
+
+Previous version based on Spring 3.2.1 is still available under branch _spring_3_2_1_version_.
+
+**New Features Added**
+
+- Spring Security (via Java Config)
+    - login / logout
+    - user registration
+    - update password
+- JPA Persistence via EBeans
+- Email sending (including integration testing via Wiser)
+- In-process Multi-Page Top-to-Bottom Integration Testing
+- All libraries upgrade (except WRO4J)
+
+**Remaining TODO Items**
+
+- Thymeleaf Templates (for rendering email HTML)
+- Replace web.xml with WebApplicationInitializer & WebMvcConfigurerAdapter (therefore removal of last xml files)
+- Upgrade WRO4J
+- Long expiry time for resources (using fingerprints)
+- Symantic logging using MDC (Mapped Diagnostic Context)

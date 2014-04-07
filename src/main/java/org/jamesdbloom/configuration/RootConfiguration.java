@@ -1,15 +1,18 @@
 package org.jamesdbloom.configuration;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
+import org.jamesdbloom.dao.UserDAO;
+import org.jamesdbloom.email.EmailConfiguration;
+import org.jamesdbloom.security.SecurityConfig;
+import org.jamesdbloom.uuid.UUIDFactory;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import ro.isdc.wro.manager.factory.ConfigurableWroManagerFactory;
 import ro.isdc.wro.manager.factory.WroManagerFactory;
 
 import javax.annotation.Resource;
 import java.util.Properties;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * This configuration contains top level beans and any configuration required by filters (as WebMvcConfiguration only loaded within Dispatcher Servlet)
@@ -17,12 +20,25 @@ import java.util.Properties;
  * @author jamesdbloom
  */
 @Configuration
-@PropertySource("classpath:web.properties")
-@ImportResource(value = {"classpath:/config/security-context.xml"})
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@ComponentScan(basePackages = {"org.jamesdbloom.dao"})
+@Import(value = {SecurityConfig.class, EmailConfiguration.class})
+@PropertySource({"classpath:web.properties", "classpath:validation.properties"})
 public class RootConfiguration {
     @Resource
     private Environment environment;
 
+    @Bean
+    protected UUIDFactory uuidFactory() {
+        return new UUIDFactory();
+    }
+
+    @Bean
+    protected UserDAO userDAO(){
+        return new UserDAO();
+    }
+
+    // this bean is in this ApplicationContext so that it can be used in DelegatingFilterProxy
     @Bean
     public WroManagerFactory wroManagerFactory() {
         ConfigurableWroManagerFactory wroManagerFactory = new ConfigurableWroManagerFactory();
@@ -37,6 +53,17 @@ public class RootConfiguration {
         }});
 
         return wroManagerFactory;
+    }
+
+
+    @Bean
+    public ThreadPoolTaskExecutor taskExecutor() {
+        return new ThreadPoolTaskExecutor() {{
+            setCorePoolSize(15);
+            setMaxPoolSize(25);
+            setQueueCapacity(50);
+            setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        }};
     }
 
 }
